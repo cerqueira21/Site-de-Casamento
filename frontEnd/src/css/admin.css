@@ -1,0 +1,195 @@
+.admin {
+    min-height: 100vh;
+    background: #f5efe8;
+    padding: 2rem 1rem;
+    font-family: 'Jost', sans-serif;
+    color: #2b2420;
+}
+
+.admin__container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.admin__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* ---- Login ---- */
+.admin__login {
+    max-width: 360px;
+    margin: 4rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.admin__login input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    border: 1px solid #ddd0c2;
+    border-radius: 8px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+}
+
+.admin__login-error {
+    color: #b3261e;
+    font-size: 0.85rem;
+    min-height: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ---- Tabs ---- */
+.admin__tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.admin__tab {
+    flex: 1;
+    min-width: 140px;
+    padding: 0.7rem 1rem;
+    border: 1px solid #c98a6f;
+    background: #fff;
+    color: #c98a6f;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.admin__tab.active {
+    background: #c98a6f;
+    color: #fff;
+}
+
+.admin__panel {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.admin__panel[hidden] {
+    display: none;
+}
+
+/* ---- Tabela de presentes ---- */
+.admin__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.admin__table th,
+.admin__table td {
+    text-align: left;
+    padding: 0.6rem 0.5rem;
+    border-bottom: 1px solid #eee2d6;
+}
+
+.admin__table th {
+    color: #9a9187;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+}
+
+.admin__empty {
+    text-align: center;
+    color: #9a9187;
+    padding: 2rem 0;
+}
+
+/* ---- Grid de fotos ---- */
+.admin__photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+}
+
+.admin__photo-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.admin__photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.admin__photo-delete {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(179, 38, 30, 0.9);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.admin__photo-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.4rem;
+}
+
+/* ---- Upload de foto dos noivos ---- */
+.admin__upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 360px;
+}
+
+.admin__upload-form input[type="file"] {
+    font-family: 'Jost', sans-serif;
+}
+
+.admin__logout {
+    display: block;
+    margin: 2rem auto 0;
+    background: none;
+    border: none;
+    color: #9a9187;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+}
+
+.admin__feedback {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    min-height: 1.2rem;
+}
+
+.admin__feedback.success {
+    color: #2e7d32;
+}
+
+.admin__feedback.error {
+    color: #b3261e;
+}

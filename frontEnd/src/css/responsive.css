@@ -1,0 +1,126 @@
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    :root {
+        --section-gap: 72px;
+    }
+
+    /* Nav mobile */
+    .nav__toggle {
+        display: flex;
+    }
+
+    .nav__links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(280px, 85vw);
+        height: 100vh;
+        background: var(--cream);
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        padding: 40px 32px;
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.12);
+        transform: translateX(100%);
+        transition: transform var(--transition);
+        z-index: 1000;
+    }
+
+    .nav__links.open {
+        transform: translateX(0);
+    }
+
+    .nav__links a {
+        color: var(--text) !important;
+        font-size: 1rem;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--blush);
+    }
+
+    .nav__links a::after {
+        background: var(--gold) !important;
+    }
+
+    /* Timeline mobile */
+    .timeline::before {
+        left: 16px;
+    }
+
+    .timeline__item--left,
+    .timeline__item--right {
+        flex-direction: column;
+        padding-left: 52px;
+        padding-right: 0;
+    }
+
+    .timeline__dot {
+        left: 16px;
+    }
+
+    /* Gallery mobile */
+    .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+    }
+
+    .gallery__item--wide {
+        grid-column: span 2;
+    }
+
+    .gallery__item--tall {
+        grid-row: span 1;
+    }
+
+    /* RSVP form */
+    .rsvp__form {
+        padding: 32px 24px;
+    }
+
+    .form__row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --section-gap: 56px;
+    }
+
+    .hero__name {
+        font-size: clamp(3rem, 14vw, 5rem);
+    }
+
+    .countdown__unit {
+        padding: 16px 16px;
+    }
+
+    .countdown__sep {
+        padding-top: 16px;
+    }
+
+    .gallery__grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 150px;
+    }
+
+    .collab__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .local__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .upload__actions {
+        flex-direction: column;
+    }
+
+    .upload__actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .lightbox__nav {
+        display: none;
+    }
+}

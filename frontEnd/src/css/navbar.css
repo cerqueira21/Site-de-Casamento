@@ -1,0 +1,116 @@
+/* ─── NAVIGATION ─────────────────────────────────────────────── */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+}
+
+.nav.scrolled {
+    background: rgba(250, 246, 241, 0.97);
+    padding: 14px 32px;
+    box-shadow: 0 2px 20px rgba(44, 36, 32, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.nav__logo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 0.1em;
+    transition: color var(--transition);
+}
+
+.nav__logo span {
+    font-family: var(--font-script);
+    font-size: 1.8rem;
+    color: var(--gold-light);
+}
+
+.nav.scrolled .nav__logo {
+    color: var(--charcoal);
+}
+
+.nav.scrolled .nav__logo span {
+    color: var(--gold);
+}
+
+.nav__links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav__links a {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color var(--transition);
+    position: relative;
+}
+
+.nav__links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gold-light);
+    transform: scaleX(0);
+    transition: transform var(--transition);
+}
+
+.nav__links a:hover::after {
+    transform: scaleX(1);
+}
+
+.nav.scrolled .nav__links a {
+    color: var(--text);
+}
+
+.nav.scrolled .nav__links a::after {
+    background: var(--gold);
+}
+
+/* Mobile menu toggle */
+.nav__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+    z-index: 1001;
+}
+
+.nav__toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    transition: var(--transition);
+    transform-origin: center;
+}
+
+.nav.scrolled .nav__toggle span {
+    background: var(--charcoal);
+}
+
+.nav__toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav__toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav__toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}

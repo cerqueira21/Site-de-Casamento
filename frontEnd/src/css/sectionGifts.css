@@ -1,0 +1,296 @@
+/* ─── LISTA DE PRESENTES ─────────────────────────────────────── */
+.presentes {
+    background: var(--blush)
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.containerBtnPresente {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.btnVerMais {
+    background: transparent;
+    color: var(--rose);
+    border: 1px solid var(--rose);
+    width: 100%;
+    padding: 10px;
+}
+
+.btnVerMais:hover {
+    background: var(--rose);
+    color: #fff;
+}
+
+/* Grid de presentes */
+.gifts__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+
+/* Painel de pagamento */
+.gifts__payment {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.4s ease;
+}
+
+.gifts__payment-close-header{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.gifts__payment-close {
+    padding: 6px 10px;
+    background: var(--cream);
+    border-radius: 100%;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+.gifts__payment-close:hover {
+    transition: var(--transition);
+    transform: scale(1.1);
+    background: var(--rose);
+    
+    color: #fff;
+}
+
+/* Formas de pagamento */
+.payment__methods {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.payment__method {
+    flex: 1;
+    padding: 12px 8px;
+    background: var(--cream);
+    border: 1.5px solid #e8e0d8;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.payment__method:hover {
+    border-color: var(--rose);
+    color: var(--rose);
+}
+
+.payment__method--active {
+    border-color: var(--rose);
+    color: var(--rose);
+    background: rgba(201, 137, 122, 0.06);
+    font-weight: 500;
+}
+
+/* Campo de valor */
+.payment__amount-wrap {
+    background: var(--cream);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin-bottom: 20px;
+}
+
+.payment__amount-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    margin-bottom: 6px;
+    display: block;
+}
+
+.payment__amount-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.payment__currency {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-weight: 300;
+}
+
+.payment__amount-input {
+    border: none;
+    background: transparent;
+    font-size: 2rem;
+    font-weight: 300;
+    font-family: var(--font-serif);
+    color: var(--charcoal);
+    width: 100%;
+    outline: none;
+
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.payment__amount-input::-webkit-outer-spin-button,
+.payment__amount-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Pix info */
+.payment__pix-info {
+    background: #f0faf4;
+    border: 1px solid #a8d5b5;
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin-bottom: 20px;
+}
+
+.payment__pix-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #2d7a4d;
+    margin-bottom: 8px;
+}
+
+.payment__pix-key {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.payment__pix-key span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    word-break: break-all;
+}
+
+.payment__pix-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: #2d7a4d;
+    color: #fff;
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.payment__pix-copy:hover {
+    background: #1f5a38;
+}
+
+.payment__pix-hint {
+    font-size: 0.8rem;
+    color: #2d7a4d;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.payment__pix-hint a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+/* Cartão info */
+.payment__card-info {
+    background: #f0f6ff;
+    border: 1px solid #b5d4f4;
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 20px;
+}
+
+.payment__card-hint {
+    font-size: 0.88rem;
+    color: #185fa5;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.6;
+}
+
+.payment__card-hint i {
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.payment__cta {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.payment__note {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* Sucesso */
+.gifts__success {
+    text-align: center;
+    padding: 48px 24px;
+    animation: fadeIn 0.5s ease;
+}
+
+.gifts__success-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.gifts__success h3 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+}
+
+.gifts__success p {
+    color: var(--text-light);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .gifts__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gifts__payment {
+        padding: 24px 16px;
+    }
+
+    .payment__methods {
+        flex-direction: column;
+    }
+}

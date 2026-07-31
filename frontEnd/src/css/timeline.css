@@ -1,0 +1,183 @@
+/* ─── HISTÓRIA / TIMELINE ────────────────────────────────────── */
+.historia {
+    background: var(--blush);
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Linha central */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--gold-light) 10%, var(--gold-light) 90%, transparent);
+}
+
+.timeline__item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.timeline__item--left {
+    flex-direction: row;
+    padding-right: calc(50% + 40px);
+}
+
+.timeline__item--right {
+    flex-direction: row;
+    padding-left: calc(50% + 40px);
+}
+
+.timeline__item--center {
+    justify-content: center;
+    padding: 0;
+}
+
+.timeline__dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--gold);
+    top: 24px;
+    z-index: 1;
+}
+
+.timeline__dot--heart {
+    width: 44px;
+    height: 44px;
+    background: var(--rose);
+    box-shadow: 0 0 0 6px var(--blush), 0 4px 20px rgba(201, 137, 122, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+}
+
+.timeline__dot--heart i {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.timeline__card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+    width: 100%;
+}
+
+.timeline__card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.timeline__card--center {
+    max-width: 340px;
+    text-align: center;
+    padding: 36px;
+    border: 1px solid var(--gold-light);
+}
+
+.timeline__img-wrap {
+    height: 220px;
+    overflow: hidden;
+}
+
+.timeline__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.timeline__card:hover .timeline__img-wrap img {
+    transform: scale(1.05);
+}
+
+.timeline__body {
+    padding: 24px;
+}
+
+.timeline__year {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+.timeline__body h3,
+.timeline__card--center h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+}
+
+.timeline__body p,
+.timeline__card--center p {
+    font-size: 0.92rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    /* Move a linha vertical pra esquerda, em vez de ficar no centro */
+    .timeline::before {
+        left: 20px;
+        transform: none;
+    }
+
+    /* Os itens deixam de ser "zigue-zague" e ficam todos alinhados à direita da linha */
+    .timeline__item--left,
+    .timeline__item--right {
+        flex-direction: row;
+        padding-left: 50px;
+        padding-right: 0;
+    }
+
+    /* Os pontinhos acompanham a linha, agora à esquerda */
+    .timeline__dot {
+        left: 20px;
+        transform: none;
+    }
+
+    /* O item central (2026, com coração) também alinha à esquerda, mantendo consistência */
+    .timeline__item--center {
+        justify-content: flex-start;
+        padding-left: 50px;
+    }
+
+    .timeline__dot--heart {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline__card--center {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .timeline__img-wrap {
+        height: 180px;
+    }
+}

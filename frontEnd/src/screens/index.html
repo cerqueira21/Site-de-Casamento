@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Casamento de Liandra & André – 09 de Janeiro de 2027. Celebre conosco este momento especial." />
+  <meta name="theme-color" content="#f5efe8" />
+  <title>Liandra & André — 09.01.2027</title>
+
+  <!-- Fontes elegantes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Great+Vibes&display=swap"
+    rel="stylesheet" />
+
+  <!-- Ícones leves -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="/frontEnd/src/css/style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+      NAVEGAÇÃO FLUTUANTE
+  ============================================================ -->
+  <nav class="nav" id="nav" aria-label="Navegação principal">
+    <div class="nav__logo"><a href="#inicio">L <span>&</span> A</a></div>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#historia">Nossa História</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#presentes">Presentes</a></li>
+      <li><a href="#fotos-evento">Fotos do Evento</a></li>
+      <li><a href="#local">Local</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+    HERO SECTION
+    Parallax leve via JS + countdown + CTA
+  ============================================================ -->
+  <section class="hero" id="inicio" aria-label="Capa do site">
+
+    <!-- Camadas de fundo para efeito de profundidade -->
+    <div class="hero__bg" id="heroBg" aria-hidden="true">
+      <div class="hero__overlay"></div>
+    </div>
+
+    <!-- Pétalas decorativas animadas -->
+    <div class="petals" aria-hidden="true">
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__pre">Um dia para sempre lembrar</p>
+      <h1 class="hero__title">
+        <span class="hero__name">Liandra</span>
+        <span class="hero__ampersand">&amp;</span>
+        <span class="hero__name">André</span>
+      </h1>
+      <p class="hero__date">09 · Janeiro · 2027</p>
+      <p class="hero__quote">"Encontrei em você minha história favorita."</p>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span></span>
+      <p>Role para baixo</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+      CONTAGEM REGRESSIVA
+  ============================================================ -->
+  <section class="countdown" id="countdown" aria-label="Contagem regressiva para o casamento">
+    <div class="container">
+      <p class="section__label" id="msg_id_contagem">Faltam apenas</p>
+      <div class="countdown__grid" role="timer" aria-live="polite" aria-label="Tempo restante para o casamento">
+        <div class="countdown__unit">
+          <span class="countdown__number" id="cdDays">00</span>
+          <span class="countdown__label">Dias</span>
+        </div>
+        <div class="countdown__sep" aria-hidden="true">:</div>
+        <div class="countdown__unit">
+          <span class="countdown__number" id="cdHours">00</span>
+          <span class="countdown__label">Horas</span>
+        </div>
+        <div class="countdown__sep" aria-hidden="true">:</div>
+        <div class="countdown__unit">
+          <span class="countdown__number" id="cdMinutes">00</span>
+          <span class="countdown__label">Minutos</span>
+        </div>
+        <div class="countdown__sep" aria-hidden="true">:</div>
+        <div class="countdown__unit">
+          <span class="countdown__number" id="cdSeconds">00</span>
+          <span class="countdown__label">Segundos</span>
+        </div>
+      </div>
+      <p class="section__label" id="msg_id_contagem2"></p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  NOSSA HISTÓRIA – Linha do Tempo
+  ============================================================ -->
+  <section class="historia" id="historia" aria-label="Nossa história">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__label">Sobre nós</p>
+        <h2 class="section__title">Nossa História</h2>
+        <p class="section__subtitle">Cada capítulo nos aproximou mais. Este é apenas o começo.</p>
+      </div>
+
+      <!-- Linha do tempo vertical -->
+      <div class="timeline">
+
+        <article class="timeline__item timeline__item--left reveal">
+          <div class="timeline__card">
+            <div class="timeline__img-wrap">
+              <img src="/frontEnd/img/FotoCasalPretoBranco.PNG" alt="Liandra e André se conhecendo em 2020"
+                loading="lazy" />
+            </div>
+            <div class="timeline__body">
+              <span class="timeline__year">2020</span>
+              <h3>O Primeiro Encontro</h3>
+              <p>Num cafezinho improvisado durante a pandemia, duas telas se tornaram uma janela para o amor. Uma
+                chamada de vídeo que durou horas e mudou tudo.</p>
+            </div>
+          </div>
+          <div class="timeline__dot" aria-hidden="true"></div>
+        </article>
+
+        <article class="timeline__item timeline__item--right reveal">
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <div class="timeline__card">
+            <div class="timeline__img-wrap">
+              <img src="/frontEnd/img/FotoCasalPretoBranco.PNG" alt="Primeiro beijo" loading="lazy" />
+            </div>
+            <div class="timeline__body">
+              <span class="timeline__year">2021</span>
+              <h3>O Primeiro Beijo</h3>
+              <p>Na praia ao pôr do sol, com os pés na areia e o coração acelerado. André murmurou algo, Liandra riu —
+                e o mundo inteiro desapareceu.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline__item timeline__item--left reveal">
+          <div class="timeline__card">
+            <div class="timeline__img-wrap">
+              <img src="/frontEnd/img/FotoCasalPretoBranco.PNG" alt="Viagem juntos" loading="lazy" />
+            </div>
+            <div class="timeline__body">
+              <span class="timeline__year">2022</span>
+              <h3>Nossa Primeira Viagem</h3>
+              <p>Porto de Galinhas, hammocks, água cristalina. Percebemos que viajar juntos era mais do que férias — era
+                descobrir que cada lugar ficava melhor ao lado do outro.</p>
+            </div>
+          </div>
+          <div class="timeline__dot" aria-hidden="true"></div>
+        </article>
+
+        <article class="timeline__item timeline__item--right reveal">
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <div class="timeline__card">
+            <div class="timeline__img-wrap">
+              <img src="/frontEnd/img/FotoCasalPretoBranco.PNG" alt="Pedido de casamento" loading="lazy" />
+            </div>
+            <div class="timeline__body">
+              <span class="timeline__year">2024</span>
+              <h3>O Pedido</h3>
+              <p>No mesmo café onde tudo começou — mas desta vez ao vivo. André tirou o anel do bolso, Liandra nem
+                deixou terminar a frase. A resposta foi sim, sempre sim.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline__item timeline__item--center reveal">
+          <div class="timeline__dot timeline__dot--heart" aria-hidden="true">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <div class="timeline__card timeline__card--center">
+            <span class="timeline__year">2026</span>
+            <h3>Para Sempre</h3>
+            <p>09 de Janeiro. O dia em que a nossa história ganha um novo capítulo — eterno.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+      GALERIA PRÉ-WEDDING (fotos do ensaio)
+  ============================================================ -->
+  <section class="galeria" id="galeria" aria-label="Galeria pré-wedding">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__label">Ensaio</p>
+        <h2 class="section__title">Pré-Wedding</h2>
+        <p class="section__subtitle">Alguns momentos do nosso ensaio — antes do grande dia.</p>
+      </div>
+
+      <div class="gallery__grid" role="list">
+        <!-- Cada item abre o lightbox -->
+        <div class="gallery__grid" role="list" id="galleryGrid">
+          <!-- Populado dinamicamente via JS (preweddingGallery.js) -->
+        </div>
+      </div>
+
+      <div class="containerBtnPresente">
+        <a href="./galeria.html" class="btnVerMais">
+          <i class="fa-solid fa-images"></i> Ver mais fotos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox modal -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de foto" hidden>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Fechar foto"><i
+        class="fa-solid fa-xmark"></i></button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Foto anterior"><i
+        class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox__img-wrap">
+      <img id="lightboxImg" src="" alt="" />
+      <p id="lightboxCaption" class="lightbox__caption"></p>
+    </div>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Próxima foto"><i
+        class="fa-solid fa-chevron-right"></i></button>
+  </div>
+  <div class="lightbox__backdrop" id="lightboxBackdrop" aria-hidden="true"></div>
+
+
+
+  <!-- ============================================================
+    LISTA DE PRESENTES
+============================================================ -->
+  <section class="presentes" id="presentes" aria-label="Lista de presentes">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__label">Lista de presentes</p>
+        <h2 class="section__title">Presente para nós</h2>
+        <p class="section__subtitle">Escolha um item para presentear o casal.</p>
+      </div>
+
+      <!-- Grid de presentes -->
+      <div class="gifts__grid" id="giftsGrid">
+
+        <!-- -->
+        <button class="gift-card reveal" data-id="geladeira-frost-free" data-price="3200">
+          <div class="gift-card__img-wrap">
+            <img src="/frontEnd/img/listaPresente/eletro/geladeira.jpeg" alt="Geladeira">
+          </div>
+          <h3 class="gift-card__name">Geladeira</h3>
+          <p class="gift-card__price">R$ 3.200</p>
+          <span class="gift-card__msg"></span>
+        </button>
+
+        <button class="gift-card reveal" data-id="fogao-5-bocas" data-price="2800">
+          <div class="gift-card__img-wrap">
+            <img src="/frontEnd/img/listaPresente/eletro/Fogao.jpg" alt="Fogão">
+          </div>
+          <h3 class="gift-card__name">Fogão</h3>
+          <p class="gift-card__price">R$ 1.900</p>
+          <span class="gift-card__msg"></span>
+        </button>
+
+        <button class="gift-card reveal" data-id="sofa-2-lugares" data-price="2500">
+          <div class="gift-card__img-wrap">
+            <img src="/frontEnd/img/listaPresente/casa/sofa.jpg" alt="Sofá">
+          </div>
+          <h3 class="gift-card__name">Sofá</h3>
+          <p class="gift-card__price">R$ 2.800</p>
+          <span class="gift-card__msg"></span>
+        </button>
+
+        <!-- Item já presenteado: adicione a classe gift-card--funded -->
+        <button class="gift-card reveal" data-id="micro-ondas" data-price="700">
+          <div class="gift-card__img-wrap">
+            <img src="/frontEnd/img/listaPresente/eletro/Microondas.jpg" alt="Micro-ondas">
+          </div>
+          <h3 class="gift-card__name">Micro-ondas</h3>
+          <p class="gift-card__price">R$ 600</p>
+          <span class="gift-card__msg"></span>
+        </button>
+
+        <button class="gift-card reveal" data-id="assadeira" data-price="85">
+          <div class="gift-card__img-wrap">
+            <img src="/frontEnd/img/listaPresente/casa/Assadeira fundo removivel.jpg" alt="Assadeira">
+          </div>
+          <h3 class="gift-card__name">assadeira com fundo removivel</h3>
+          <p class="gift-card__price">R$ 85
+          </p>
+          <span class="gift-card__msg"></span>
+        </button>
+
+
+      </div><!-- /giftsGrid -->
+
+      <div class="containerBtnPresente">
+        <button type="submit" class="btnVerMais" id="btnVerMais">
+          <i class="fa-solid fa-paper-plane"></i> Ver mais
+        </button>
+      </div>
+      <!-- Painel de pagamento (aparece após selecionar um presente) -->
+      <div class="gifts__payment" id="giftsPayment" hidden>
+
+        <!-- Botão de fechar -->
+        <div class="gifts__payment-close-header">
+          <button class="gifts__payment-close" id="paymentCloseBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Formas de pagamento -->
+        <div class="payment__methods" role="group" aria-label="Forma de pagamento">
+          <button class="payment__method payment__method--active" data-method="pix">
+            <i class="fa-brands fa-pix"></i> Pix
+          </button>
+          <button class="payment__method" data-method="credit">
+            <i class="fa-regular fa-credit-card"></i> Crédito
+          </button>
+          <button class="payment__method" data-method="debit">
+            <i class="fa-solid fa-wallet"></i> Débito
+          </button>
+        </div>
+
+        <!-- Valor -->
+        <div class="payment__amount-wrap">
+          <label for="giftAmount" class="payment__amount-label">Valor do presente</label>
+          <div class="payment__amount-row">
+            <span class="payment__currency">R$</span>
+            <input type="number" id="giftAmount" readonly class="payment__amount-input" aria-label="Valor em reais" />
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="giftGuestName">Seu nome <span class="form__optional">(opcional)</span></label>
+          <input type="text" id="giftGuestName" maxlength="60" placeholder="Ex: Tia Maria" />
+        </div>
+        <div class="form__group">
+          <label for="giftGuestMessage">Mensagem para o casal <span class="form__optional">(opcional)</span></label>
+          <textarea id="giftGuestMessage" rows="2" maxlength="200" placeholder="Deixe um recadinho..."></textarea>
+        </div>
+
+        <!-- Dados do Pix (aparecem quando Pix selecionado) -->
+        <div class="payment__pix-info" id="pixInfo">
+          <div id="pixQrWrap" hidden>
+            <img id="pixQrImage" alt="QR Code Pix" style="width:220px; height:220px; display:block; margin:0 auto;" />
+            <p class="payment__pix-label">Código Pix (copia e cola)</p>
+            <div class="payment__pix-key">
+              <span id="pixCodigoValue" style="word-break: break-all; font-size: 0.75rem;"></span>
+              <button class="payment__pix-copy" id="pixCopyBtn" aria-label="Copiar código Pix">
+                <i class="fa-regular fa-copy"></i> Copiar
+              </button>
+            </div>
+            <p class="payment__pix-hint" id="pixStatusMsg">Aguardando pagamento...</p>
+          </div>
+        </div>
+
+        <!-- Dados cartão (aparecem quando crédito/débito selecionado) -->
+        <div class="payment__card-info" id="cardInfo" hidden>
+          <p class="payment__card-hint">
+            <i class="fa-solid fa-circle-info"></i>
+            Você será redirecionado para nosso link de pagamento seguro via <strong>Mercado Pago</strong>.
+          </p>
+        </div>
+
+        <!-- CTA -->
+        <button class="btn btn--primary btn--large payment__cta" id="giftCta">
+          <i class="fa-solid fa-heart"></i>
+          <span id="giftCtaText">Gerar QR Code e presentear</span>
+        </button>
+
+        <p class="payment__note">
+          <i class="fa-solid fa-lock"></i>
+          Pagamento seguro · Seus dados são protegidos
+        </p>
+
+      </div><!-- /giftsPayment -->
+
+      <!-- Feedback de sucesso -->
+      <div class="gifts__success" id="giftsSuccess" hidden role="alert">
+        <div class="gifts__success-icon">🎁</div>
+        <h3>Que presente lindo!</h3>
+        <p>Obrigado pelo carinho. Vocês fazem parte desse dia especial.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+      GALERIA COLABORATIVA – Upload de fotos pelos convidados
+  ============================================================ -->
+  <section class="collab" id="fotos-evento" aria-label="Galeria colaborativa do evento">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__label">Você faz parte</p>
+        <h2 class="section__title">Fotos do Evento</h2>
+        <p class="section__subtitle">Compartilhe os momentos que você viveu aqui. Cada foto conta nossa história juntos.
+        </p>
+      </div>
+
+      <!-- Upload área -->
+      <div class="upload__area" id="uploadArea" role="button" tabindex="0"
+        aria-label="Clique ou arraste fotos para enviar">
+        <div class="upload__icon"><i class="fa-solid fa-camera-retro"></i></div>
+        <p class="upload__title">Enviar minha foto</p>
+        <p class="upload__hint">Toque para escolher ou arraste a imagem aqui<br><small>JPG, PNG ou WEBP · máximo 10
+            MB</small></p>
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple
+          aria-label="Escolher arquivo de imagem" />
+      </div>
+
+      <!-- Formulário de upload -->
+      <form class="upload__form" id="uploadForm" novalidate aria-label="Formulário de envio de foto">
+        <div class="form__group">
+          <label for="guestName">Seu nome <span class="form__optional">(opcional)</span></label>
+          <input type="text" id="guestName" name="guestName" placeholder="Ex: Tia Maria" maxlength="50"
+            autocomplete="name" />
+        </div>
+
+        <!-- Preview das imagens selecionadas -->
+        <div class="upload__preview" id="uploadPreview" aria-live="polite"
+          aria-label="Pré-visualização das fotos selecionadas"></div>
+
+        <div class="upload__actions" id="uploadActions" hidden>
+          <button type="submit" class="btn btn--primary" id="btnUpload">
+            <i class="fa-solid fa-paper-plane"></i> Enviar Foto
+          </button>
+          <button type="button" class="btn btn--ghost" id="btnCancelUpload">Cancelar</button>
+        </div>
+
+        <!-- Barra de progresso -->
+        <div class="upload__progress" id="uploadProgress" hidden aria-live="assertive">
+          <div class="progress__bar">
+            <div class="progress__fill" id="progressFill"></div>
+          </div>
+          <p class="progress__text" id="progressText">Comprimindo e enviando...</p>
+        </div>
+
+        <!-- Feedback -->
+        <div class="upload__feedback" id="uploadFeedback" role="alert" aria-live="assertive"></div>
+      </form>
+
+      <!-- Grid das fotos enviadas pelos convidados e dos noivos -->
+      <div class="collab__divider">
+        <span>Fotos do evento</span>
+      </div>
+
+      <!-- Filtros -->
+      <div class="buttons_galery_container">
+        <button class="btn_galery active" id="filterNoivos" onclick="filterPhotos('noivos')">
+          Noivos
+        </button>
+
+        <button class="btn_galery" id="filterConvidados" onclick="filterPhotos('convidados')">
+          Convidados
+        </button>
+      </div>
+
+      <div class="collab__grid" id="collabGrid" role="list" aria-label="Fotos do evento">
+        <!-- Populado via JavaScript -->
+        <div class="collab__empty" id="noivosEmpty">
+          <i class="fa-regular fa-images"></i>
+          <p>As fotos dos noivos aparecerão aqui.</p>
+        </div>
+
+        <div class="collab__empty" id="collabEmpty" hidden>
+          <i class="fa-regular fa-images"></i>
+          <p>As fotos enviadas pelos convidados aparecerão aqui.</p>
+        </div>
+      </div>
+
+      <div class="containerBtnPresente">
+        <a href="./galeria.html" class="btnVerMais">
+          <i class="fa-solid fa-images"></i> Ver galeria completa
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+      INFORMAÇÕES DO EVENTO
+  ============================================================ -->
+  <section class="local" id="local" aria-label="Informações do evento">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__label">Detalhes</p>
+        <h2 class="section__title">O Grande Dia</h2>
+      </div>
+
+      <div class="local__grid">
+
+        <div class="local__card reveal">
+          <div class="local__icon"><i class="fa-regular fa-calendar-heart"></i></div>
+          <h3>Data & Horário</h3>
+          <p><strong>09 de Janeiro de 2027</strong></p>
+          <p>Cerimônia às 17h30<br>Festa a partir das 19h00</p>
+        </div>
+
+        <div class="local__card reveal">
+          <div class="local__icon"><i class="fa-solid fa-location-dot"></i></div>
+          <h3>Local</h3>
+          <p><strong>Espaço Itália</strong></p>
+          <p>Estrada da Roseira, 5500<br>Apolinário — Mairiporã, SP</p>
+          <a href="https://maps.app.goo.gl/nYVGVjQCcNBaiUBF6" class="btn btn--outline btn--sm" target="_blank"
+            rel="noopener" aria-label="Abrir localização no Google Maps">
+            <i class="fa-solid fa-map"></i> Ver no Mapa
+          </a>
+        </div>
+
+        <div class="local__card reveal">
+          <div class="local__icon"><i class="fa-solid fa-shirt"></i></div>
+          <h3>Dress Code</h3>
+          <p><strong>Black Tie Opcional</strong></p>
+          <p>Pedimos que evitem as cores<br><span class="local__avoid">branco, off-white e bege</span></p>
+        </div>
+
+        <div class="local__card reveal">
+          <div class="local__icon"><i class="fa-solid fa-circle-info"></i></div>
+          <h3>Informações</h3>
+          <ul class="local__list">
+            <li><i class="fa-solid fa-check"></i> Estacionamento gratuito</li>
+            <li><i class="fa-solid fa-check"></i> Acessível para cadeirantes</li>
+            <li><i class="fa-solid fa-check"></i> Bar aberto até meia-noite</li>
+            <li><i class="fa-solid fa-check"></i> Crianças até 5 anos não contam</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Mapa embutido (placeholder elegante) -->
+      <div class="local__map reveal" role="img" aria-label="Mapa aproximado do local do evento">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.794366316851!2d-46.619135124019785!3d-23.359463378939136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef1dc96ab5c91%3A0xca973a4e7fea1120!2sEstr.%20da%20Roseira%2C%205500%20-%20Apolinario%2C%20Mairipor%C3%A3%20-%20SP%2C%2007600-000!5e0!3m2!1spt-BR!2sbr!4v1783827725744!5m2!1spt-BR!2sbr"
+          width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+      FOOTER
+  ============================================================ -->
+  <footer class="footer" aria-label="Rodapé">
+    <div class="footer__content">
+      <p class="footer__names">Liandra <span>&amp;</span> André</p>
+      <p class="footer__date">09 · 01 · 2027</p>
+      <p class="footer__quote">"O amor não olha com os olhos, mas com a mente."<br><em>— Shakespeare</em></p>
+      <div class="footer__divider" aria-hidden="true"><i class="fa-solid fa-heart"></i></div>
+      <p class="footer__copy">Feito com amor · 2026</p>
+    </div>
+    <a href="./admin.html" class="footer__admin-link" aria-label="Área administrativa" title="Área dos noivos">
+      <i class="fa-solid fa-lock"></i>
+    </a>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Voltar ao topo" title="Voltar ao topo" hidden>
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script type="module" src="../scripts/main.js"></script>
+</body>
+
+</html>

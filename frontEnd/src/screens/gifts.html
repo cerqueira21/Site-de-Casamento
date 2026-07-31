@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Lista completa de presentes do casamento de Isabella & Rafael. Escolha um presente e contribua com carinho." />
+    <meta name="theme-color" content="#f5efe8" />
+    <title>Lista de Presentes — Liandra & Andre</title>
+
+    <!-- Fontes (mesmas da página principal) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Great+Vibes&display=swap"
+        rel="stylesheet" />
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Estilos: o style.css principal + um arquivo extra só para esta página -->
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body class="gifts-page">
+
+    <!-- ============================================================
+       NAVEGAÇÃO (igual à página principal, com link "voltar")
+  ============================================================ -->
+    <nav class="nav scrolled" id="nav" aria-label="Navegação principal">
+        <a href="index.html" class="nav__logo">L <span>&</span> A</a>
+
+        <div class="containerBtnVoltarPresente">
+            <button type="button" class="btnVoltar" id="btnVoltar">
+                <i class="fa-solid fa-arrow-left"></i> Voltar
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    CABEÇALHO DA PÁGINA
+============================================================ -->
+    <header class="gifts-header">
+        <div class="container">
+            <p class="section__label">Lista completa</p>
+            <h1 class="section__title">Nossos Presentes</h1>
+            <p class="section__subtitle">
+                Escolha um ou mais presentes para nos ajudar a montar nosso novo lar.
+                Cada contribuição é recebida com muito carinho. 💛
+            </p>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    BARRA DE FILTROS
+============================================================ -->
+    <section class="filters" aria-label="Filtros de presentes">
+        <div class="container">
+            <div class="filters__bar">
+
+                <!-- Busca por nome -->
+                <div class="filters__group filters__group--search">
+                    <label for="searchInput" class="sr-only">Buscar presente</label>
+                    <i class="fa-solid fa-magnifying-glass filters__search-icon" aria-hidden="true"></i>
+                    <input type="search" id="searchInput" placeholder="Buscar presente..." autocomplete="off" />
+                </div>
+
+                <!-- Ordenação -->
+                <div class="filters__group">
+                    <label for="sortSelect">Ordenar por</label>
+                    <select id="sortSelect">
+                        <option value="popular">Mais populares</option>
+                        <option value="recent">Mais recentes</option>
+                        <option value="price-asc">Menor preço</option>
+                        <option value="price-desc">Maior preço</option>
+                    </select>
+                </div>
+
+                <!-- Faixa de preço -->
+                <div class="filters__group">
+                    <label for="priceSelect">Faixa de preço</label>
+                    <select id="priceSelect">
+                        <option value="all">Qualquer valor</option>
+                        <option value="0-100">Até R$ 100</option>
+                        <option value="100-500">R$ 100 a R$ 500</option>
+                        <option value="500-1000">R$ 500 a R$ 1.000</option>
+                        <option value="1000-99999">Acima de R$ 1.000</option>
+                        <option value="custom">Personalizado...</option>
+                    </select>
+                </div>
+
+                <!-- Botão para mostrar/esconder filtro de categorias no mobile -->
+                <button class="filters__toggle" id="filtersToggle" aria-expanded="false"
+                    aria-controls="categoryFilters">
+                    <i class="fa-solid fa-sliders" aria-hidden="true"></i> Categorias
+                </button>
+            </div>
+
+            <!-- Campos de valor personalizado (aparecem só quando "Personalizado" é escolhido) -->
+            <div class="filters__custom-price" id="customPriceFields" hidden>
+                <div class="filters__group">
+                    <label for="priceMin">Valor mínimo (R$)</label>
+                    <input type="number" id="priceMin" min="0" step="10" placeholder="0" />
+                </div>
+                <div class="filters__group">
+                    <label for="priceMax">Valor máximo (R$)</label>
+                    <input type="number" id="priceMax" min="0" step="10" placeholder="5000" />
+                </div>
+                <button class="btn btn--outline btn--sm" id="applyCustomPrice">Aplicar</button>
+            </div>
+
+            <!-- Categorias (chips) -->
+            <div class="filters__categories" id="categoryFilters" role="group" aria-label="Filtrar por categoria">
+                <button class="chip chip--active" data-category="all">Todas</button>
+                <button class="chip" data-category="lua-de-mel"><i class="fa-solid fa-plane" aria-hidden="true"></i> Lua
+                    de Mel</button>
+                <button class="chip" data-category="casa"><i class="fa-solid fa-house" aria-hidden="true"></i> Itens
+                    para Casa</button>
+                <button class="chip" data-category="eletro"><i class="fa-solid fa-plug" aria-hidden="true"></i>
+                    Eletrodomésticos</button>
+                <button class="chip" data-category="experiencias"><i class="fa-solid fa-star" aria-hidden="true"></i>
+                    Experiências</button>
+                <button class="chip" data-category="divertidos"><i class="fa-solid fa-dice" aria-hidden="true"></i>
+                    Presentes divertidos</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    LISTA DE PRESENTES + CONTADOR DE RESULTADOS
+============================================================ -->
+    <section class="gifts-list" aria-label="Lista de presentes disponíveis">
+        <div class="container">
+
+            <p class="gifts-list__count" id="resultsCount" aria-live="polite"></p>
+
+            <!-- Grid de cards (populado via JavaScript) -->
+            <div class="gifts-list__grid" id="giftsGrid" role="list"></div>
+
+            <!-- Estado vazio (sem resultados) -->
+            <div class="gifts-list__empty" id="emptyState" hidden>
+                <i class="fa-regular fa-face-sad-tear" aria-hidden="true"></i>
+                <h3>Nenhum presente encontrado</h3>
+                <p>Tente ajustar os filtros ou limpar a busca.</p>
+                <button class="btn btn--outline" id="clearFiltersBtn">Limpar filtros</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+    BOTÃO FLUTUANTE DO CARRINHO
+============================================================ -->
+    <button class="cart-fab" id="cartFab" aria-label="Abrir carrinho de presentes">
+        <i class="fa-solid fa-gift" aria-hidden="true"></i>
+        <span class="cart-fab__badge" id="cartBadge" hidden>0</span>
+    </button>
+
+    <!-- ============================================================
+    PAINEL DO CARRINHO (drawer lateral)
+============================================================ -->
+    <div class="cart-overlay" id="cartOverlay" hidden></div>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Carrinho de presentes" aria-hidden="true">
+        <div class="cart-drawer__header">
+            <h2><i class="fa-solid fa-gift" aria-hidden="true"></i> Meu Carrinho</h2>
+            <button class="cart-drawer__close" id="cartClose" aria-label="Fechar carrinho">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Lista de itens do carrinho -->
+        <div class="cart-drawer__items" id="cartItems">
+            <!-- Estado vazio -->
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fa-regular fa-gift" aria-hidden="true"></i>
+                <p>Seu carrinho está vazio.</p>
+                <p class="cart-empty__hint">Escolha um presente na lista para começar.</p>
+            </div>
+            <!-- Itens são inseridos aqui via JS -->
+        </div>
+
+        <!-- Rodapé com total e ação -->
+        <div class="cart-drawer__footer" id="cartFooter" hidden>
+            <div class="cart-drawer__total">
+                <span>Total</span>
+                <strong id="cartTotal">R$ 0</strong>
+            </div>
+            <button class="btn btn--primary btn--large cart-drawer__checkout" id="checkoutBtn">
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                Finalizar Contribuição
+            </button>
+        </div>
+    </aside>
+
+    <!-- ============================================================
+    MODAL DE FINALIZAÇÃO (reaproveita o painel de pagamento)
+============================================================ -->
+    <div class="checkout-overlay" id="checkoutOverlay" hidden></div>
+    <div class="checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Finalizar contribuição"
+        hidden>
+        <button class="checkout-modal__close" id="checkoutClose" aria-label="Fechar">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2 class="checkout-modal__title">Finalizar Contribuição</h2>
+        <p class="checkout-modal__subtitle">Você está presenteando com:</p>
+
+        <div class="checkout-modal__summary" id="checkoutSummary"></div>
+
+        <div class="checkout-modal__total">
+            <span>Valor total</span>
+            <strong id="checkoutTotal">R$ 0</strong>
+        </div>
+
+        <div class="message-input checkout-modal__message" id="checkoutMessage">
+            <input type="text" id="seuNomeNoPresente" placeholder="Digite seu nome (opcional)">
+            <textarea id="mensagemNoivos" name="mensagem" style="resize: none;" cols="50"
+                placeholder="Escreva sua mensagem aqui (opcional)"></textarea>
+        </div>
+
+        <!-- Formas de pagamento -->
+        <div class="payment__methods" role="group" aria-label="Forma de pagamento">
+            <button class="payment__method payment__method--active" data-method="pix">
+                <i class="fa-brands fa-pix" aria-hidden="true"></i> Pix
+            </button>
+            <button class="payment__method" data-method="credit">
+                <i class="fa-regular fa-credit-card" aria-hidden="true"></i> Crédito
+            </button>
+            <button class="payment__method" data-method="debit">
+                <i class="fa-solid fa-wallet" aria-hidden="true"></i> Débito
+            </button>
+        </div>
+
+        <!-- Pix info -->
+        <div class="payment__pix-info" id="checkoutPixInfo">
+            <div id="checkoutPixQrWrap" hidden>
+                <img id="checkoutPixQrImage" alt="QR Code Pix"
+                    style="width:220px; height:220px; display:block; margin:0 auto;" />
+                <p class="payment__pix-label">Código Pix (copia e cola)</p>
+                <div class="payment__pix-key">
+                    <span id="checkoutPixCodigoValue" style="word-break: break-all; font-size: 0.75rem;"></span>
+                    <button class="payment__pix-copy" id="checkoutPixCopy">
+                        <i class="fa-regular fa-copy"></i> Copiar
+                    </button>
+                </div>
+                <p class="payment__pix-hint" id="checkoutPixStatusMsg">Aguardando pagamento...</p>
+            </div>
+        </div>
+
+        <!-- Cartão info -->
+        <div class="payment__card-info" id="checkoutCardInfo" hidden>
+            <p class="payment__card-hint">
+                <i class="fa-solid fa-circle-info"></i>
+                Você será redirecionado para o link de pagamento seguro via <strong>Mercado Pago</strong>.
+            </p>
+        </div>
+
+        <button class="btn btn--primary btn--large" id="checkoutCta">
+            <i class="fa-solid fa-heart" aria-hidden="true"></i>
+            <span id="checkoutCtaText">Ver chave Pix e presentear</span>
+        </button>
+
+        <p class="payment__note">
+            <i class="fa-solid fa-lock" aria-hidden="true"></i>
+            Pagamento seguro · Seus dados são protegidos
+        </p>
+    </div>
+
+    <div class="checkout-success" id="checkoutSuccess" hidden role="alert">
+        <div class="gifts__success-icon">🎁</div>
+        <h3>Que presente lindo!</h3>
+        <p>Obrigado pelo carinho. Vocês fazem parte desse dia especial.</p>
+    </div>
+
+    <!-- ============================================================
+    FOOTER (igual ao da página principal)
+============================================================ -->
+    <footer class="footer" aria-label="Rodapé">
+        <div class="footer__content">
+            <p class="footer__names">Liandra <span>&amp;</span> Adre</p>
+            <p class="footer__date">09 · 01 · 2027</p>
+            <div class="footer__divider" aria-hidden="true"><i class="fa-solid fa-heart"></i></div>
+            <p class="footer__copy">Feito com amor · 2026</p>
+        </div>
+    </footer>
+
+    <!-- Scripts: dados dos presentes + lógica desta página -->
+    <script type="module" src="../scripts/gifts.js"></script>
+</body>
+
+</html>

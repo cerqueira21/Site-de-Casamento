@@ -1,0 +1,870 @@
+/* ============================================================
+gifts.css — Estilos exclusivos da página de Lista de Presentes
+Reaproveita variáveis e tokens definidos em style.css
+============================================================ */
+
+/* ─── Cabeçalho da página ────────────────────────────────────── */
+.gifts-header {
+    background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 100%);
+    padding: 140px 0 56px;
+    text-align: center;
+}
+
+.gifts-header .section__title {
+    margin-bottom: 8px;
+}
+
+.gifts-header .section__subtitle {
+    margin: 0 auto;
+}
+
+/* Link ativo na navegação */
+.nav__links a.active {
+    color: var(--rose) !important;
+}
+
+.nav__links a.active::after {
+    transform: scaleX(1) !important;
+    background: var(--rose) !important;
+}
+
+/* ─── BARRA DE FILTROS ───────────────────────────────────────── */
+.filters {
+    background: #fff;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--blush);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+}
+
+.filters__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.filters__group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filters__group label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+
+.filters__group select,
+.filters__group input {
+    padding: 10px 14px;
+    border: 1.5px solid #e8e0d8;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    background: var(--cream);
+    color: var(--text);
+    outline: none;
+    transition: border-color var(--transition);
+    min-width: 160px;
+}
+
+.filters__group select:focus,
+.filters__group input:focus {
+    border-color: var(--rose);
+}
+
+/* Busca */
+.filters__group--search {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+    justify-content: center;
+}
+
+.filters__search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+.filters__group--search input {
+    width: 100%;
+    padding-left: 38px;
+    min-width: 0;
+}
+
+/* Botão de categorias (mobile) */
+.filters__toggle {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1.5px solid #e8e0d8;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    color: var(--text);
+    background: var(--cream);
+}
+
+/* Faixa personalizada */
+.filters__custom-price {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--blush);
+}
+
+.filters__custom-price input {
+    max-width: 140px;
+}
+
+/* Chips de categoria */
+.filters__categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border: 1.5px solid #e8e0d8;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    color: var(--text-light);
+    background: var(--cream);
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.chip:hover {
+    border-color: var(--rose);
+    color: var(--rose);
+}
+
+.chip--active {
+    background: var(--rose);
+    border-color: var(--rose);
+    color: #fff;
+    font-weight: 500;
+}
+
+/* ─── LISTA / GRID DE PRESENTES ──────────────────────────────── */
+
+
+.gifts-list {
+    background: var(--cream);
+    padding-top: 40px;
+}
+
+.gifts-list__count {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 24px;
+}
+
+.gifts-list__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+/* Card de presente */
+.gift-card {
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.4s ease;
+}
+
+.gift-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.gift-card__img-wrap {
+    padding: 10px;
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.gift-card__img-wrap img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gift-card:hover .gift-card__img-wrap img {
+    transform: scale(1.06);
+}
+
+/* Selo "presenteado" */
+.gift-card__badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #2d7a4d;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+/* Categoria */
+.gift-card__category {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+}
+
+.gift-card__body {
+    padding: 18px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.gift-card__name {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.gift-card__desc {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 14px;
+    flex: 1;
+}
+
+.gift-card__price {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--rose-dark);
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+/* Barra de progresso (reaproveitada do padrão de presentes) */
+.gift-card__bar-wrap {
+    height: 4px;
+    background: var(--blush);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.gift-card__bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--rose), var(--gold));
+    border-radius: 2px;
+}
+
+.gift-card__funded-label {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.gift-card__add {
+    width: 100%;
+    justify-content: center;
+}
+
+.gift-card__add.added {
+    background: #2d7a4d;
+    border-color: #2d7a4d;
+}
+
+.gift-card__add:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* Estado vazio */
+.gifts-list__empty {
+    text-align: center;
+    padding: 64px 24px;
+    color: var(--text-light);
+}
+
+.gifts-list__empty i {
+    font-size: 3rem;
+    color: var(--gold-light);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.gifts-list__empty h3 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+}
+
+.gifts-list__empty p {
+    margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ─── BOTÃO FLUTUANTE DO CARRINHO ────────────────────────────── */
+.cart-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 950;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--rose);
+    color: #fff;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+}
+
+.cart-fab:hover {
+    background: var(--rose-dark);
+    transform: translateY(-3px);
+}
+
+.cart-fab__badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-size: 0.7rem;
+    font-weight: 600;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+    padding: 0 4px;
+}
+
+/* ─── CARRINHO (DRAWER LATERAL) ──────────────────────────────── */
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(44, 28, 22, 0.45);
+    z-index: 1990;
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.25s ease;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(420px, 92vw);
+    background: var(--cream);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cart-drawer.open {
+    transform: translateX(0);
+}
+
+.cart-drawer__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    border-bottom: 1px solid var(--blush);
+    background: #fff;
+}
+
+.cart-drawer__header h2 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-drawer__header h2 i {
+    color: var(--rose);
+}
+
+.cart-drawer__close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.cart-drawer__close:hover {
+    background: var(--blush);
+    color: var(--rose);
+}
+
+.cart-drawer__items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+}
+
+.cart-empty i {
+    font-size: 2.8rem;
+    color: var(--gold-light);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.cart-empty__hint {
+    font-size: 0.82rem;
+    margin-top: 4px;
+}
+
+/* Item do carrinho */
+.cart-item {
+    display: flex;
+    gap: 12px;
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 12px;
+    margin-bottom: 10px;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.cart-item__img {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.cart-item__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-item__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cart-item__name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+    line-height: 1.3;
+    /* Trunca nomes longos */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cart-item__price {
+    font-size: 0.82rem;
+    color: var(--rose-dark);
+}
+
+/* Controle de quantidade */
+.cart-item__qty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.cart-item__qty button {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #e8e0d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--text);
+    transition: var(--transition);
+}
+
+.cart-item__qty button:hover {
+    border-color: var(--rose);
+    color: var(--rose);
+}
+
+.cart-item__qty span {
+    font-size: 0.85rem;
+    min-width: 20px;
+    text-align: center;
+}
+
+.cart-item__subtotal {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.cart-item__remove {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    padding: 4px;
+    transition: var(--transition);
+}
+
+.cart-item__remove:hover {
+    color: #c07070;
+}
+
+/* Rodapé do carrinho */
+.cart-drawer__footer {
+    padding: 20px 24px;
+    background: #fff;
+    border-top: 1px solid var(--blush);
+}
+
+.cart-drawer__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.cart-drawer__total strong {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--rose-dark);
+}
+
+.cart-drawer__checkout {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ─── MODAL DE FINALIZAÇÃO (checkout) ────────────────────────── */
+.checkout-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(44, 28, 22, 0.55);
+    z-index: 2990;
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.25s ease;
+}
+
+.checkout-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3000;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    width: min(480px, 92vw);
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -46%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.checkout-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.checkout-modal__close:hover {
+    background: var(--blush);
+    color: var(--rose);
+}
+
+.checkout-modal__title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+}
+
+.checkout-modal__subtitle {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+}
+
+.checkout-modal__summary {
+    background: var(--cream);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    max-height: 160px;
+    overflow-y: auto;
+}
+
+.checkout-modal__summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--blush);
+}
+
+.checkout-modal__summary-row:last-child {
+    border-bottom: none;
+}
+
+.checkout-modal__summary-row span:first-child {
+    color: var(--text-light);
+}
+
+.message-input{
+    display:grid;
+    background: var(--cream);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    max-height: 160px;
+    overflow-y: auto;
+}
+
+#seuNomeNoPresente,#mensagemNoivos{
+    border: none;
+    padding: 10px;
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+}
+
+.checkout-modal__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--blush);
+    font-size: 1rem;
+}
+
+.checkout-modal__total strong {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--rose-dark);
+}
+
+#checkoutCta, span{
+    width: 100%;
+}
+
+/* ─── Toast de confirmação (ao adicionar ao carrinho) ────────── */
+.toast {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--charcoal);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 3100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast i {
+    color: var(--gold-light);
+}
+
+/* ─── RESPONSIVO ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .gifts-header {
+        padding: 110px 0 40px;
+    }
+
+    .filters {
+        position: static;
+    }
+
+    .filters__bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters__group select,
+    .filters__group input {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .filters__group--search {
+        order: -1;
+    }
+
+    .filters__toggle {
+        display: flex;
+    }
+
+    .filters__categories {
+        display: none;
+    }
+
+    .filters__categories.open {
+        display: flex;
+    }
+
+    .filters__custom-price {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters__custom-price input {
+        max-width: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .gifts-list__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .gift-card__img-wrap {
+        height: 130px;
+    }
+
+    .gift-card__body {
+        padding: 12px 14px 14px;
+    }
+
+    .gift-card__name {
+        font-size: 0.95rem;
+    }
+
+    .gift-card__desc {
+        font-size: 0.78rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .gift-card__price {
+        font-size: 1.05rem;
+    }
+
+    .gift-card__add {
+        font-size: 0.75rem;
+        padding: 10px 12px;
+    }
+
+    .cart-drawer {
+        width: 100%;
+    }
+
+    .checkout-modal {
+        padding: 24px 18px;
+    }
+}

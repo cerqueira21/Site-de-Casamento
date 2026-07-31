@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Painel — Liandra & André</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Great+Vibes&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body>
+
+    <nav class="nav scrolled" id="nav" aria-label="Navegação principal">
+        <a href="index.html" class="nav__logo">L <span>&</span> A</a>
+    </nav>
+
+    <div class="admin">
+        <div class="admin__container">
+            <h1 class="admin__title">Painel dos Noivos</h1>
+
+            <!-- ===================== LOGIN ===================== -->
+            <div class="admin__login" id="loginPanel">
+                <p><i class="fa-solid fa-lock"></i> Área restrita</p>
+                <p class="admin__login-error" id="loginError"></p>
+                <input type="password" id="passwordInput" placeholder="Senha" autocomplete="current-password" />
+                <button class="btn btn--primary" id="btnLogin" style="width:100%;">Entrar</button>
+            </div>
+
+            <!-- ===================== PAINEL (após login) ===================== -->
+            <div id="adminContent" hidden>
+
+                <div class="admin__tabs">
+                    <button class="admin__tab active" data-tab="gifts">
+                        <i class="fa-solid fa-gift"></i> Presentes
+                    </button>
+                    <button class="admin__tab" data-tab="photos">
+                        <i class="fa-regular fa-images"></i> Fotos dos convidados
+                    </button>
+                    <button class="admin__tab" data-tab="upload">
+                        <i class="fa-solid fa-camera"></i> Postar foto (noivos)
+                    </button>
+                </div>
+
+                <!-- ---- Presentes ---- -->
+                <div class="admin__panel" id="panelGifts">
+                    <table class="admin__table">
+                        <thead>
+                            <tr>
+                                <th>Presente(s)</th>
+                                <th>Valor</th>
+                                <th>De</th>
+                                <th>Mensagem</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody id="giftsTableBody"></tbody>
+                    </table>
+                    <p class="admin__empty" id="giftsEmpty" hidden>Nenhum presente recebido ainda.</p>
+                </div>
+
+                <!-- ---- Fotos dos convidados ---- -->
+                <div class="admin__panel" id="panelPhotos" hidden>
+                    <div class="admin__tabs" style="margin-bottom:1rem;">
+                        <button class="admin__tab active" data-filtro-foto="all">Todas</button>
+                        <button class="admin__tab" data-filtro-foto="noivo">Noivos</button>
+                        <button class="admin__tab" data-filtro-foto="convidado">Convidados</button>
+                    </div>
+                    <div class="admin__photos-grid" id="photosGrid"></div>
+                    <p class="admin__empty" id="photosEmpty" hidden>Nenhuma foto enviada ainda.</p>
+                </div>
+
+                <!-- ---- Upload noivos ---- -->
+                <div class="admin__panel" id="panelUpload" hidden>
+                    <form class="admin__upload-form" id="uploadNoivoForm">
+                        <input type="file" id="noivoFileInput" accept="image/jpeg,image/png,image/webp" required />
+                        <button type="submit" class="btn btn--primary">
+                            <i class="fa-solid fa-upload"></i> Enviar foto
+                        </button>
+                        <p class="admin__feedback" id="uploadNoivoFeedback"></p>
+                    </form>
+                </div>
+
+                <button class="admin__logout" id="btnLogout">Sair</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="adminLightbox"
+        style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; flex-direction:column;">
+        <button id="adminLightboxClose"
+            style="position:absolute; top:20px; right:20px; background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="adminLightboxImg" style="max-width:90vw; max-height:80vh; object-fit:contain; border-radius:8px;" />
+        <button id="adminLightboxDelete"
+            style="margin-top:1rem; background:#b3261e; color:#fff; border:none; padding:0.6rem 1.2rem; border-radius:8px; cursor:pointer;">
+            <i class="fa-solid fa-trash"></i> Excluir esta foto
+        </button>
+    </div>
+
+    <script src="../scripts/admin.js"></script>
+</body>
+
+</html>

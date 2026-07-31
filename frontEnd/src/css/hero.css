@@ -1,0 +1,246 @@
+/* ─── HERO ───────────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    height: 100svh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero__bg {
+    position: absolute;
+    inset: -60px;
+    background:
+        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1800&q=80') center / cover no-repeat;
+    will-change: transform;
+}
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg,
+            rgba(44, 28, 22, 0.62) 0%,
+            rgba(44, 28, 22, 0.48) 50%,
+            rgba(60, 30, 20, 0.65) 100%);
+}
+
+/* Pétalas decorativas */
+.petals {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    width: 12px;
+    height: 18px;
+    background: rgba(255, 220, 200, 0.35);
+    border-radius: 50% 50% 50% 0;
+    animation: petalFall linear infinite;
+}
+
+.petal:nth-child(1) {
+    left: 10%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+    width: 10px;
+    height: 14px;
+}
+
+.petal:nth-child(2) {
+    left: 25%;
+    animation-duration: 11s;
+    animation-delay: 2s;
+    width: 8px;
+    height: 12px;
+}
+
+.petal:nth-child(3) {
+    left: 42%;
+    animation-duration: 9s;
+    animation-delay: 4s;
+    width: 14px;
+    height: 20px;
+}
+
+.petal:nth-child(4) {
+    left: 58%;
+    animation-duration: 12s;
+    animation-delay: 1s;
+    width: 9px;
+    height: 13px;
+}
+
+.petal:nth-child(5) {
+    left: 70%;
+    animation-duration: 10s;
+    animation-delay: 3s;
+}
+
+.petal:nth-child(6) {
+    left: 83%;
+    animation-duration: 8s;
+    animation-delay: 6s;
+    width: 11px;
+    height: 16px;
+}
+
+.petal:nth-child(7) {
+    left: 90%;
+    animation-duration: 13s;
+    animation-delay: 0.5s;
+    width: 7px;
+    height: 11px;
+}
+
+.petal:nth-child(8) {
+    left: 5%;
+    animation-duration: 9s;
+    animation-delay: 7s;
+    width: 13px;
+    height: 18px;
+}
+
+@keyframes petalFall {
+    0% {
+        top: -5%;
+        opacity: 0;
+        transform: translateX(0) rotate(0deg);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        top: 105%;
+        opacity: 0;
+        transform: translateX(80px) rotate(360deg);
+    }
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 0 20px;
+    max-width: 700px;
+}
+
+.hero__pre {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+    animation: fadeUp 1s ease both;
+}
+
+.hero__title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px 20px;
+    margin-bottom: 18px;
+    animation: fadeUp 1s 0.2s ease both;
+}
+
+.hero__name {
+    font-family: var(--font-script);
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 400;
+    line-height: 1;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero__ampersand {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+}
+
+.hero__date {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 2.5vw, 1.3rem);
+    font-weight: 300;
+    letter-spacing: 0.35em;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 20px;
+    animation: fadeUp 1s 0.35s ease both;
+}
+
+.hero__quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(2rem, 2.5vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 40px;
+    animation: fadeUp 1s 0.5s ease both;
+}
+
+.hero a.btn {
+    animation: fadeUp 1s 0.65s ease both;
+}
+
+.hero__scroll {
+    position: absolute;
+    bottom: 32px;
+    left: auto;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: fadeUp 1s 1s ease both;
+}
+
+.hero__scroll span {
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.6));
+    animation: scrollLine 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scaleY(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

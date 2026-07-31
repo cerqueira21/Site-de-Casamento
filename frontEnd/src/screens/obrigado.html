@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5efe8" />
+    <title>Obrigado — Liandra & André</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Great+Vibes&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <style>
+        .thankyou {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: #f5efe8;
+        }
+
+        .thankyou__icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .thankyou__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: #2b2420;
+        }
+
+        .thankyou__text {
+            font-family: 'Jost', sans-serif;
+            font-size: 1rem;
+            color: #6b6259;
+            max-width: 420px;
+            margin-bottom: 1.5rem;
+        }
+
+        .thankyou__redirect {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.85rem;
+            color: #9a9187;
+        }
+
+        .thankyou__redirect span {
+            font-weight: 600;
+            color: #2b2420;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="thankyou">
+        <div class="thankyou__icon" id="thankyouIcon">🎁</div>
+        <h1 class="thankyou__title" id="thankyouTitle">Que presente lindo!</h1>
+        <p class="thankyou__text" id="thankyouText">
+            Obrigado pelo carinho. Vocês fazem parte desse dia especial.
+        </p>
+        <p class="thankyou__redirect">
+            Voltando para o site em <span id="countdown">6</span> segundos...
+        </p>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const status = params.get('status') || 'success';
+
+        const icon = document.getElementById('thankyouIcon');
+        const title = document.getElementById('thankyouTitle');
+        const text = document.getElementById('thankyouText');
+
+        if (status === 'pending') {
+            icon.textContent = '⏳';
+            title.textContent = 'Pagamento em processamento';
+            text.textContent = 'Assim que for confirmado, vamos atualizar nossa lista. Obrigado pelo carinho!';
+        } else if (status === 'failure') {
+            icon.textContent = '😕';
+            title.textContent = 'Algo não saiu como esperado';
+            text.textContent = 'Seu pagamento não foi concluído. Você pode tentar novamente na lista de presentes.';
+        }
+
+        let seconds = 6;
+        const countdownEl = document.getElementById('countdown');
+        const timer = setInterval(() => {
+            seconds -= 1;
+            countdownEl.textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = '../screens/index.html';
+            }
+        }, 1000);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Galerias de fotos do casamento de Liandra & André." />
+    <meta name="theme-color" content="#f5efe8" />
+    <title>Galerias — Liandra & André</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Great+Vibes&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+    <nav class="nav scrolled" id="nav" aria-label="Navegação principal">
+        <a href="index.html" class="nav__logo">L <span>&</span> A</a>
+        <div class="containerBtnVoltarPresente">
+            <button type="button" class="btnVoltar" id="btnVoltar">
+                <i class="fa-solid fa-arrow-left"></i> Voltar
+            </button>
+        </div>
+    </nav>
+
+    <header class="galerias-header">
+        <p class="section__label">Momentos registrados</p>
+        <h1 class="section__title">Nossas Galerias</h1>
+    </header>
+
+    <div class="galerias-tabs" role="tablist">
+        <button class="galerias-tab" data-tab="pre-wedding">Pré-Wedding</button>
+        <button class="galerias-tab" data-tab="noivos">Noivos</button>
+        <button class="galerias-tab" data-tab="convidados">Convidados</button>
+    </div>
+
+    <!-- ===================== PRÉ-WEDDING (fotos fixas) ===================== -->
+    <section class="galerias-panel" id="panelPreWedding" hidden>
+        <div class="galerias-grid" id="preWeddingGrid">
+            <!-- Populado dinamicamente via JS (galeriasPage.js), a partir de preweddingData.js -->
+        </div>
+    </section>
+
+    <!-- ===================== NOIVOS (dinâmica) ===================== -->
+    <section class="galerias-panel" id="panelNoivos" hidden>
+        <div class="galerias-grid" id="noivosGrid"></div>
+        <p class="galerias-empty" id="noivosEmptyMsg" hidden>Ainda não há fotos dos noivos por aqui.</p>
+    </section>
+
+    <!-- ===================== CONVIDADOS (dinâmica) ===================== -->
+    <section class="galerias-panel" id="panelConvidados" hidden>
+        <div class="galerias-grid" id="convidadosGrid"></div>
+        <p class="galerias-empty" id="convidadosEmptyMsg" hidden>Ainda não há fotos dos convidados por aqui.</p>
+    </section>
+
+    <!-- Lightbox (mesmo padrão do resto do site) -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de foto" hidden>
+        <button class="lightbox__close" id="lightboxClose" aria-label="Fechar foto"><i
+                class="fa-solid fa-xmark"></i></button>
+        <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Foto anterior"><i
+                class="fa-solid fa-chevron-left"></i></button>
+        <div class="lightbox__img-wrap">
+            <img id="lightboxImg" src="" alt="" />
+            <p id="lightboxCaption" class="lightbox__caption"></p>
+        </div>
+        <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Próxima foto"><i
+                class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <div class="lightbox__backdrop" id="lightboxBackdrop" aria-hidden="true"></div>
+
+    <footer class="footer" aria-label="Rodapé">
+        <div class="footer__content">
+            <p class="footer__names">Liandra <span>&amp;</span> André</p>
+            <p class="footer__date">09 · 01 · 2027</p>
+            <p class="footer__copy">Feito com amor · 2026</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../scripts/galeriasPages.js"></script>
+</body>
+
+</html>
